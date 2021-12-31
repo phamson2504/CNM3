@@ -39,11 +39,6 @@ app.use('/persons', personsRoute);
 io.on('connection', (socket) => {
     console.log('a user connected');
 });
-app.use(express.static(path.join(__dirname, "/client/build")));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
 server.listen(process.env.PORT||PORT, function(){
     console.log('Server is running on Port:',PORT);
 });
